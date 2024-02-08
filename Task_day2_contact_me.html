@@ -32,22 +32,22 @@
         <form action="">
             <div>
                 <label>Name</label>
-                <input type="text">
+                <input type="text" id="name">
             </div>
 
         <div>
             <label for="">Email</label>
-            <input type="email" placeholder="Type your email...">
+            <input type="email" placeholder="Type your email..." id="email">
         </div>
 
         <div>
             <label for="">Phone Number</label>
-            <input type="tel">
+            <input type="tel" id="phonenumber">
         </div>
 
         <div>
             <label for="">Subject</label>
-            <select name="" id="">
+            <select name="" id="subject">
                 <option>HTML</option>
                 <option>CSS</option>
                 <option>Java Script</option>
@@ -57,12 +57,15 @@
 
         <div>
             <label for="">Your Massage</label>
-            <textarea></textarea>
+            <textarea id="massage"></textarea>
         </div>
 
         <div>
-            <button type="submit">Submit</button>
+            <button type="button" onclick="getData()">Submit</button>
         </div>
         </form>
 </body>
+
+<script src="./asset/css/css/Script.js"></script>
+
 </html>

@@ -1,0 +1,138 @@
+//console.log("hello world")
+//console.info("hello world")
+//alert("bang udah bang")
+
+//variabel
+
+
+//let names = "rahmat"
+//console.log(names)
+
+//names = "rahmat wahyu"
+//console.log(names)
+
+//let MyAge = 15"
+//MyAge = 16
+//console.log(MyAge)
+
+//const MyName = ("rahmat")
+//console MyAge = 25
+//let IsMarried = true
+
+//const MyProfile = {
+    //MyName = "rahmat"
+    //MyAge = 25
+    //IsMarried = true
+
+    //const MyName = ("Rahmat")
+    //console.log(`Hallo my name is ${MyName}`)
+
+//tipe data string (harus pake ""), number, boolean, null
+
+    //const MyName = 19191
+    //console.log(typeof MyName)
+
+    //Boolean true/false
+    //digunakan untuk sebuah kondisi
+    //bisa menggunakan let atau const
+
+    //let IsMarried = false
+    //console.log(typeof IsMarried)
+
+    //null
+    //const data = null
+    //console.log(data)
+
+   // const nonZero = "ada"
+    //const zero = 0
+    //const data = null
+    //const bang = undefined
+
+    //console.log(typeof nonZero)
+    //console.log(typeof zero)
+    //console.log(typeof data)
+    //console.log(typeof undefined)
+
+//#########
+
+//pengkondisian (kondisioning) =fungsi yang dikerjakan pada kondisi tertentu
+// if else switch case
+
+//Mmeber VIP = di perbolehkan masuk
+//is not VIP = harus daftar VIP
+//const isVIP = false
+
+//if(isVIP == true) {
+    //console.log("silahkan masuk")
+//} else {
+   // console.log("tolong daftar dulu")
+//}
+
+
+//nested if
+//const age = 35
+
+//if(age < 20) {
+    //console.log("kamu sudah melewati batas umur")
+//}
+//else if(age < 30) {
+ //   console.log("silahkan ambil kelas reguler")
+//}
+//else if(age == 35) {
+    //console.log("sudah ketuaan")
+//}
+//else {
+ //   console.log("maaf anda tidak bisa daftar")
+//}
+
+
+//pakai oprator && untuk lebih dari satu variabel harus benar semua atau jika ada yang tidak sesuai kriteria akan dibaca else
+//pakai operator || untuk lebih dari satu variabel dan yang dibaca yang benar saja atau yg sesuai kriteria
+//const value1 = 5
+//const value2 = 100
+
+//if(value1 >= 75 && value2 >=75) {
+    //console.log("anda lulus")
+//}
+//else {
+    //console.log("anda tidak lulus")
+//}
+
+//########################
+
+//function (fungsi) = sekumpulan kode dengan tujuan tertentu yang berjalan apabila dijalankan atau dipanggil
+//fungsi deklarasi, fungsing ekspresi, fungsi arrow function, keyboar return
+//deklarasi, jalankan fungsi, 
+
+//function declaration
+//function sayhello(parameter) {
+    //blok code
+//}
+
+//function sayhello2() {
+    //blok code
+//}
+
+//function sayhello3() {
+    //blok code
+//}
+
+//function sayhello() {
+   // console.log("bang")
+//}
+
+//function sayhello2(name, isVIP) {
+   // console.log("selamat datang " + name + ", " + isVIP + "KAMU MEMBER VIP")
+//}
+
+//sayhello2("rahmat", "ya ") //argumen)
+
+function membership(name, age) {
+    if(age > 20) {
+        return "selamat +(name) "
+    }
+    if(age < 10) {
+        return "maaf "
+    }
+}
+console.log(membership("rahmat", 30))
