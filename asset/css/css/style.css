@@ -6,7 +6,7 @@ body {
   nav {
     display: flex;
     justify-content: space-between;
-    background-color: #dbdbdb;
+    background-color: #f8f3f3;
     padding: 0 80px;
     align-items: center;
   }
@@ -83,4 +83,52 @@ body {
     border-radius: 10px;
     color: white;
     font-weight: bold;
+  }
+
+  .input-blog-image-group {
+    display: flex;
+  }
+
+  .web {
+    background-color: #aa3535;
+  }
+
+  .web1 {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .top1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .top1 img {
+    width: 600px;
+    margin-left: 50px;
+  }
+
+  .duration {
+    margin: auto;
+  }
+
+  .duration ul {
+    list-style-type: none;
+    text-decoration: none;
+  }
+
+  .teknologi1 {
+    display: flex;
+    list-style-type: none;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .teknologi2 {
+    display: flex;
+    list-style-type: none;
+    text-decoration: none;
+    padding: 50px;
   }
