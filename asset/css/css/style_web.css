@@ -139,10 +139,16 @@ div .addProject div {
 div .technologies {
    display: flex;
     width: 250px;
-    margin: auto;
-    border: 1px solid;
+    margin: 0;
     align-items: start;
     text-align: start;
+}
+
+.technologies input {
+  padding-left: 0%;
+  margin-left: 0%;
+  text-align: left;
+  justify-content: space-between;
 }
 
 div .button {
@@ -153,6 +159,11 @@ div .button {
 button {
     color: antiquewhite;
     background-color: rgb(28, 28, 83);
+}
+
+div .projectList{
+  display: flex;
+  flex-direction: column;
 }
 
 div .project-list-item {

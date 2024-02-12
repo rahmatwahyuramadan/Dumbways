@@ -29,7 +29,7 @@
         <h1>ADD MY PROJECT</h1>
       </div>
       <div>
-        <form onsubmit="dataProject(event)">
+        <form onsubmit="addProject(event)">
             <div class="addProject">
                 <div>
                     <label for="input-project-name">Project Name</label>
@@ -53,12 +53,12 @@
                     <label for="technologies">Technologies</label>
                 </div>
                 <div class="technologies">
-                    <input type="checkbox" name="technologies" value="Node JS">Node JS
-                    <input type="checkbox" name="technologies" value="Java Script">Next JS
+                    <input type="checkbox" id="inputNodeJS"name="technologies" value="Node JS">Node JS
+                    <input type="checkbox" id="inputJavaScript" name="technologies" value="Java Script">Next JS
                 </div>
                 <div class="technologies">
-                    <input type="checkbox" name="technologies" value="React NS">React JS
-                    <input type="checkbox" name="technologies" value="Typescript">Typescript
+                    <input type="checkbox" id="inputReactJS" name="technologies" value="React NS">React JS
+                    <input type="checkbox" id="inputTypescript" name="technologies" value="Typescript">Typescript
                 </div>
                 <div>
                     <label for="upload-image">Upload Image</label>
@@ -74,10 +74,10 @@
 
       <div>
         <h1>My Project</h1>
-        <div id="project">
+        <div id="addProject" class="projectList">
             <div class="project-list-item">
                 <h1>Dumbways App 2021</h1>
-                <p>
+                <p class="paragraf">
                 App that used for dumbways student, it was deployed and can download on playstore. happy download
                 </p>
                 <img src="asset/css/Gambar/playstore.png" alt="">
