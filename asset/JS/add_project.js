@@ -4,13 +4,14 @@ function addProject(event) {
   event.preventDefault();
 
   let Project = document.getElementById("input-project-name").value;
-  let startDate = document.getElementById("start-date").value;
-  let endDate = document.getElementById("end-date").value;
+  let startDate = new Date(document.getElementById("start-date").value);
+  let endDate = new Date(document.getElementById("end-date").value);
   let Description = document.getElementById("description").value;
   let inputNodeJS = document.getElementById("inputNodeJS").checked;
   let inputNextJS = document.getElementById("inputNextJS").checked;
   let inputReactJS = document.getElementById("inputReactJS").checked;
   let inputGolang = document.getElementById("inputGolang").checked;
+  let postAt = new Date
 
   let dataProject = {
     Project,
@@ -20,7 +21,8 @@ function addProject(event) {
     inputNodeJS,
     inputNextJS,
     inputReactJS,
-    inputGolang
+    inputGolang,
+    postAt
   };
 
   dataProjects.push(dataProject);
@@ -57,6 +59,9 @@ function renderProject() {
           ${dataProjects[index].Project}
         </div>
         <div>
+          Durasi : ${getDistenceTime(dataProjects[index].postAt)}
+        </div>
+        <div>
           <p class="paragraf">
             ${dataProjects[index].Description}
           </p>
@@ -72,4 +77,65 @@ function renderProject() {
       </div>
       </div>`;
     }
+}
+
+// function getFullDate(time) {
+//   const monthNames = [
+//     "Jan",
+//     "Feb",
+//     "Mar",
+//     "Apr",
+//     "Mei",
+//     "Jun",
+//     "Jul",
+//     "Ags",
+//     "Sep",
+//     "Okt",
+//     "Nov",
+//     "Des",
+//   ];
+
+//   const year = time.getFullYear();
+//   const month = time.getMonth();
+//   const date = time.getDate();
+//   const hour = time.getHours();
+//   const minute = time.getMinutes();
+
+//   return `${date} ${monthNames[month]} ${year} - ${hour}:${minute} WIB`;
+// }
+
+function getDistenceTime(startDate, endDate) {
+  let timeStart = startDate;
+  let timeEnd = endDate;
+  let getDistenceTime = timeEnd - timeStart; 
+  console.log(getDistenceTime);
+
+  const diffTime = Math.abs(timeEnd - timeStart);
+  const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const months = Math.floor(days / 30);
+  const years = Math.floor(months / 12);
+
+
+  if (days === 1) {
+    return "1 day";
+  }
+
+  if (days < 30) {
+    return days + " days";
+  }
+
+  if (months === 1) {
+    return "1 month";
+  }
+
+  if (months < 12) {
+    return months + " months";
+  }
+
+  if (years === 1) {
+    return "1 year";
+  }
+
+  return years + " years";
+  
 }
