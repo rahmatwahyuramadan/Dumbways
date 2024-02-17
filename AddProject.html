@@ -1,98 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add My Project</title>
-    <link rel="stylesheet" href="asset/css/css/style_web.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add My Project</title>
+  <link rel="stylesheet" href="asset/css/css/style_web.css">
+  <link rel="stylesheet" href="asset/fontAwesome/fontawesome-free-6.5.1-web/css/all.min.css">
 </head>
+
 <body>
-    <nav>
-        <div class="left">
-          <ul>
-            <img src="asset/css/Gambar/download (1).png" alt="logo-image"/> 
-            
-            <li>
-              <a href="./home.html">Home</a>
-            </li>
-            <li class="active">
-              <a href="./Task_day1.html">My Project</a>
-            </li>
-          </ul>
+  <nav>
+    <div class="left">
+      <ul>
+        <img src="asset/css/Gambar/download (1).png" alt="logo-image" />
+
+        <li>
+          <a href="./home.html">Home</a>
+        </li>
+        <li class="active">
+          <a href="./Task_day1.html">My Project</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="right">
+      <a href="">Contact Me</a>
+    </div>
+  </nav>
+  <div>
+    <h1>ADD MY PROJECT</h1>
+  </div>
+  <div>
+    <form onsubmit="addProject(event)">
+      <div class="addProject">
+        <div>
+          <label for="input-project-name">Project Name</label>
+          <input type="text" name="" id="input-project-name">
         </div>
-  
-        <div class="right">
-          <a href="">Contact Me</a>
+        <div class="date">
+          <div>
+            <label for="start-date">Start Date</label>
+            <input type="date" id="start-date">
+          </div>
+          <div>
+            <label for="end-date">End Date</label>
+            <input type="date" id="end-date">
+          </div>
         </div>
-      </nav>
-      <div>
-        <h1>ADD MY PROJECT</h1>
-      </div>
-      <div>
-        <form onsubmit="addProject(event)">
-            <div class="addProject">
-                <div>
-                    <label for="input-project-name">Project Name</label>
-                    <input type="text" name="" id="input-project-name">
-                </div>
-                <div class="date">
-                    <div>
-                        <label for="start-date">Start Date</label>
-                        <input type="date" id="start-date">
-                    </div>
-                    <div>
-                        <label for="end-date">End Date</label>
-                        <input type="date" id="end-date">
-                    </div>
-                </div>
-                <div>
-                    <label for="description">Description</label>
-                    <textarea name="" id="description" cols="30" rows="10"></textarea>
-                </div>
-                <div>
-                    <label for="technologies">Technologies</label>
-                </div>
-                <div class="technologies">
-                    <input type="checkbox" id="inputNodeJS"name="technologies" value="Node JS">Node JS
-                    <input type="checkbox" id="inputJavaScript" name="technologies" value="Java Script">Next JS
-                </div>
-                <div class="technologies">
-                    <input type="checkbox" id="inputReactJS" name="technologies" value="React NS">React JS
-                    <input type="checkbox" id="inputTypescript" name="technologies" value="Typescript">Typescript
-                </div>
-                <div>
-                    <label for="upload-image">Upload Image</label>
-                    <input type="file" id="upload-image">
-                </div>
-                <div class="button">
-                    <button type="submit">Submit</button>
-                </div>
-            </div>
-            
-        </form>
+        <div>
+          <label for="description">Description</label>
+          <textarea name="" id="description" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+          <label for="technologies">Technologies</label>
+        </div>
+        <div class="technologies">
+          <input type="checkbox" id="inputNodeJS" name="technologies" value="Node JS">Node JS
+          <input type="checkbox" id="inputNextJS" name="technologies" value="Next JS">Next JS
+        </div>
+        <div class="technologies">
+          <input type="checkbox" id="inputReactJS" name="technologies" value="React JS">React JS
+          <input type="checkbox" id="inputGolang" name="technologies" value="Golang">Golang
+        </div>
+        <div>
+          <label for="upload-image">Upload Image</label>
+          <input type="file" id="upload-image">
+        </div>
+        <div class="button">
+          <button type="submit">Submit</button>
+        </div>
       </div>
 
-      <div>
-        <h1>My Project</h1>
-        <div id="addProject" class="projectList">
-            <div class="project-list-item">
-                <h1>Dumbways App 2021</h1>
-                <p class="paragraf">
-                App that used for dumbways student, it was deployed and can download on playstore. happy download
-                </p>
-                <img src="asset/css/Gambar/playstore.png" alt="">
-                <img src="asset/css/Gambar/android.png" alt="">
-                <img src="asset/css/Gambar/java.png" alt="">
-                <div class="button">
-                    <button class="buttom-group">Edit</button>
-                    <button class="buttom-group">Delete</button>
-                </div>
-            </div>
+    </form>
+  </div>
+
+  <div class="bawah">
+    <h1>My Project</h1>
+  </div>
+  <div class="container">
+    <div class="projectList" id="addProject">
+      <div class="project-list-item">
+        <img src="asset/css/Gambar/projectGambar.jpg" alt="" class="projectImage">
+        <div>
+          <h1>Dumbways App 2021</h1>
         </div>
+        <div>Durasi</div>
+        <div>
+          <p class="paragraf">
+            App that used for dumbways student, it was deployed and can download on playstore. happy download
+          </p>
+        </div>
+        <div>
+          <i class="fa-brands fa-node-js"></i>
+          <i class="fa-brands fa-js"></i>
+          <i class="fa-brands fa-react"></i>
+          <i class="fa-brands fa-golang"></i>
+        </div>
+        <div class="buttonProject">
+          <button class="buttom-group">Edit</button>
+          <button class="buttom-group">Delete</button>
         </div>
       </div>
+    </div>
+  </div>
+
 </body>
 
-<script src="asset/css/css/add_project.js"></script>
+<script src="asset/JS/add_project.js"></script>
+<script src="asset/fontAwesome/fontawesome-free-6.5.1-web/js/all.min.js"></script>
 
 </html>

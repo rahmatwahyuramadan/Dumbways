@@ -1,11 +1,11 @@
 body {
     margin: 0;
-    background-color: #f8f3f3;
+    background-color: #b6abab;
 }
 nav {
     display: flex;
     justify-content: space-between;
-    background-color: #f8f3f3;
+    background-color: #f0e6e3;
     padding: 0 80px;
     align-items: center;
   }
@@ -34,7 +34,7 @@ nav {
   
   nav .right a {
     text-decoration: none;
-    background-color: orangered;
+    background-color: rgb(22, 21, 21);
     padding: 8px 20px;
     border-radius: 5px;
     color: white;
@@ -116,7 +116,8 @@ div .addProject {
     margin: auto;
     width: 400px;
     padding: 10px;
-    
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
 }
 
 div .addProject div {
@@ -151,36 +152,63 @@ div .technologies {
   justify-content: space-between;
 }
 
-div .button {
-    text-align: right;
-    ;
-}
-
-button {
+div .button button {
+    align-items: end;
     color: antiquewhite;
-    background-color: rgb(28, 28, 83);
+    background-color: rgb(20, 20, 22);
+    border-radius: 50%;
+    width: 100px;
+    height: 30px;
 }
 
-div .projectList{
+
+.container{
   display: flex;
-  flex-direction: column;
+  padding-bottom: 50px;
+  width: auto;
+  height: max-content;
+  background-color: #dfd4cf;
+  /* justify-content: flex-start; */
+  /* flex-direction: row; */
 }
 
-div .project-list-item {
+.projectList {
+  width: 100%;
+  display: flex;
+  margin: 10px;
+  height: auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.projectImage {
+  width: 250px;
+}
+
+.project-list-item {
     width: 250px;
+    height: auto;
     border: 1px solid grey;
     text-align: justify;
     padding: 20px;
     margin: 30px;
     background-color: white;
     border-radius: 5%;
+    box-shadow: 0px 10px 20px gray;
 }
 
 div .project-list-item img {
-    width: 20px;
+    width: 100%;
 }
 
-div .button {
-    
+div .buttonProject {
+  display: flex;
+  justify-content: space-between;
     width: 100%;
+}
+
+.buttom-group {
+  width: 100px;
+  background-color: black;
+  color: #b6abab;
 }
