@@ -59,7 +59,7 @@ function renderProject() {
           ${dataProjects[index].Project}
         </div>
         <div>
-          Durasi : ${getDistenceTime(dataProjects[index].postAt)}
+          Durasi : ${getDistenceTime(dataProjects[index].startDate, dataProjects[index].endDate)}
         </div>
         <div>
           <p class="paragraf">
@@ -107,7 +107,7 @@ function renderProject() {
 function getDistenceTime(startDate, endDate) {
   let timeStart = startDate;
   let timeEnd = endDate;
-  let getDistenceTime = timeEnd - timeStart; 
+  let getDistenceTime = endDate - startDate; 
   console.log(getDistenceTime);
 
   const diffTime = Math.abs(timeEnd - timeStart);

@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+}
+
+.container-one {
+    width: 50%;
+    background-color: red;
+}
+
+.container-two {
+    width: 50%;
+    background-color: blue;
+}
+
+@media only screen and (max-width: 400px){
+    .container {
+        flex-direction: column;
+    }
+}
