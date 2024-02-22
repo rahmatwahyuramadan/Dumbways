@@ -137,28 +137,53 @@ div .addProject div {
     width: 100%;
 }
 
-div .technologies {
-   display: flex;
-    width: 250px;
-    margin: 0;
-    align-items: start;
-    text-align: start;
+div .technologies1 {
+  width: 400px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0px;
+  margin: 0;
+  align-items: start;
+  text-align: start;
 }
 
-.technologies input {
-  padding-left: 0%;
-  margin-left: 0%;
-  text-align: left;
-  justify-content: space-between;
+.technologies1 input {
+  margin: none;
+  padding: none;
+  justify-content: flex-start;
 }
 
-div .button button {
-    align-items: end;
+div .technologies2 {
+  display: flex;
+  width: 400px;
+  margin: 0;
+  align-items: start;
+  text-align: start;
+}
+
+.technologies2 input {
+ padding-left: 0%;
+ margin-left: 0%;
+ text-align: left;
+ justify-content: space-between;
+}
+
+.buttom-item {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
     color: antiquewhite;
     background-color: rgb(20, 20, 22);
-    border-radius: 50%;
+    border-radius: 15%;
     width: 100px;
     height: 30px;
+}
+
+.bawah {
+  text-align: center;
+  
 }
 
 

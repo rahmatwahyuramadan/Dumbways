@@ -37,7 +37,7 @@ function renderProject() {
   
     for (let index = 0; index < dataProjects.length; index++) {
       let techIcons = "";
-      if (dataProjects[index].inputNodeJS){
+      if (dataProjects[index].inputNodeJS == true){
         techIcons += `<i class="fa-brands fa-node-js"></i>`
       };
       if (dataProjects[index].inputNextJS){
