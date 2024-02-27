@@ -6,7 +6,7 @@ nav {
     display: flex;
     justify-content: space-between;
     background-color: #f0e6e3;
-    padding: 0 80px;
+    padding: 0 50px;
     align-items: center;
   }
   
@@ -38,6 +38,7 @@ nav {
     padding: 8px 20px;
     border-radius: 5px;
     color: white;
+    align-items: end;
   }
   
   nav .left ul li {
@@ -131,24 +132,30 @@ div .addProject div {
 
 .addProject input {
     width: 100%;
+    color: #dfd4cf;
+    background-color: rgb(241, 236, 236);
+    border-radius: 20%;
 }
 
 .addProject textarea {
     width: 100%;
+    background-color: rgb(241, 236, 236);
+    border-radius: 10%;
 }
+
 
 div .technologies1 {
   width: 400px;
   display: flex;
   justify-content: flex-start;
   padding: 0px;
-  margin: 0;
+  margin: 0 0 0 0;
   align-items: start;
   text-align: start;
 }
 
 .technologies1 input {
-  margin: none;
+  margin: 0 0 0 0;
   padding: none;
   justify-content: flex-start;
 }
@@ -175,7 +182,7 @@ div .technologies2 {
 
 .button {
     color: antiquewhite;
-    background-color: rgb(20, 20, 22);
+    background-color: rgb(22, 21, 21);
     border-radius: 15%;
     width: 100px;
     height: 30px;
@@ -265,5 +272,22 @@ div .buttonProject {
   }
   .bars-item {
     display: block;
+  }
+  .formDiv .addProject{
+    width: 300px;
+  }
+
+  div .technologies-item input {
+    width: 300px;
+  }
+
+  div .technologies1{
+    width: 300px;
+  }
+  div .technologies2{
+    width: 300px;
+  }
+  nav{
+    padding: o 20px;
   }
 }

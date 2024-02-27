@@ -50,9 +50,9 @@
     <h1>ADD MY PROJECT</h1>
   </div>
   <div>
-    <form onsubmit="addProject(event)">
+    <form class="formDiv" onsubmit="addProject(event)">
       <div class="addProject">
-        <div>
+        <div class="inputProject">
           <label for="input-project-name">Project Name</label>
           <input type="text" name="" id="input-project-name">
         </div>
@@ -66,7 +66,7 @@
             <input type="date" id="end-date">
           </div>
         </div>
-        <div>
+        <div class="inputDescription">
           <label for="description">Description</label>
           <textarea name="" id="description" cols="30" rows="10"></textarea>
         </div>
@@ -82,7 +82,7 @@
             <input type="checkbox" id="inputReactJS" name="technologies" value="React JS">ReactJS
             <input type="checkbox" id="inputGolang" name="technologies" value="Golang">Golang
           </div>
-          <div>
+          <div class="uploadImage">
             <label for="upload-image">Upload Image</label>
             <input type="file" id="upload-image">
           </div>
