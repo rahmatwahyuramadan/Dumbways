@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Testimoni</title>
+    <link rel="stylesheet" href="asset/css/css/oop.css">
+    <link rel="stylesheet" href="asset/fontAwesome/fontawesome-free-6.5.1-web/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <ul>
+                <img src="asset/css/Gambar/download (1).png" alt="logo-image" />
+
+                <li>
+                    <a href="./home.html" class="nav-items">Home</a>
+                </li>
+                <li>
+                    <a href="./Task_day1.html" class="nav-items">My Project</a>
+                </li>
+                <li class="active">
+                    <a href="./AddProject.html" class="nav-items">Add Project</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right nav-items">
+            <a href="">Contact Me</a>
+        </div>
+        <div class="bars-item">
+            <button style="background-color: transparent; border: none; cursor: pointer" onclick="openHamburger()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="humburger-item" id="humburger-list-item">
+        <a href="./home.html" >Home</a>
+        <a href="./Task_day1.html" class="active">My Project</a>
+        <a href="">Contact Me</a>
+    </div>
+
+    <div class="title">
+        <h1>My Testimonials</h1>
+    </div>
+
+    <div class="title">
+        <h3>Rating By Star</h3>
+    </div>
+
+    <div>
+        <div class="rating">
+            <button class="rating-btn" onclick="Testimonials()">All</button>
+            <button class="rating-btn" onclick="FilterTestimonial(1)">
+              1 <i class="fa-solid fa-star"></i>
+            </button>
+            <button class="rating-btn" onclick="FilterTestimonial(2)">
+              2<i class="fa-solid fa-star"></i>
+            </button>
+            <button class="rating-btn" onclick="FilterTestimonial(3)">
+              3 <i class="fa-solid fa-star"></i>
+            </button>
+            <button class="rating-btn" onclick="FilterTestimonial(4)">
+              4 <i class="fa-solid fa-star"></i>
+            </button>
+            <button class="rating-btn" onclick="FilterTestimonial(5)">
+              5 <i class="fa-solid fa-star"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="testimoni" id="getTestimoni">
+                <div class="rootCard">
+                    <div class="image-card">
+                        <img src="asset/css/Gambar/orang1.jpeg" alt="">
+                    </div>
+                    <div>
+                        <q>Kelas capt, menyala..</q>
+                    </div>
+                    <div>
+                        <blockquote>-Jonny</blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- <script src="asset/JS/oop.js"></script> -->
+<script src="asset/JS/testimoni-HOF.js"></script>
+<script src="asset/JS/bars_items.js"></script>
+
+</html>

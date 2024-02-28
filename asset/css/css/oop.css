@@ -41,6 +41,10 @@ nav {
     margin-right: 25px;
   }
 
+  .bars-item {
+    display: none;
+  }
+
 
   .title {
     text-align: center;
@@ -62,7 +66,51 @@ nav {
     padding: 10px;
   }
 
+  .image-card {
+    width: 100%;
+  }
+
   div blockquote {
     text-align: end;
     font-weight: bold;
+  }
+
+  .rating {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .rating-btn {
+    align-items: center;
+    margin: 20px;
+    color: #f0e6e3;
+    background-color: orange;
+    border: orange solid;
+  }
+
+  .humburger-item {
+    display: none;
+  }
+  
+  .humburger-item a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    color: orange;
+  }
+  
+  .humburger-item .active {
+    background-color: white;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .bars-item {
+      display: block;
+    }
+
+    .nav-items {
+      display: none;
+    }
   }
