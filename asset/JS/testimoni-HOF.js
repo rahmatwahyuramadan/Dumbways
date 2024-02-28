@@ -88,6 +88,7 @@ const data = [
   
   const FilterTestimonial = async (rating) => {
     let testimonials = document.getElementById("getTestimoni");
+    let dataHTML = ''
     const data = await getData();
     const dataTestimonials = data.data;
   
