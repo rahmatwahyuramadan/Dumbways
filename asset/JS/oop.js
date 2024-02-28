@@ -1,9 +1,10 @@
 class Testimoni {
     // properties
-    constructor(image, massage, person) {
+    constructor(image, comment, author, rate) {
         this._image = image;
-        this._massage = massage;
-        this._person = person;
+        this._comment = comment;
+        this._author = author;
+        this._rate = rate;
     }
   
     // methods
@@ -11,12 +12,16 @@ class Testimoni {
         return this._image;
       }
     
-    get massage() {
-        return this._massage;
+    get comment() {
+        return this._comment;
       }
     
-    get person() {
-        return this._person;
+    get author() {
+        return this._author;
+      }
+
+    get rate() {
+        return this._rate;
       }
     
     set image(val) {
@@ -28,22 +33,31 @@ class Testimoni {
         this._image = val;
       }
     
-    set massage(val) {
+    set comment(val) {
         if (val === "") {
           console.log("Quote cannot be empty");
           return;
         }
     
-        this._massage = val;
+        this._comment = val;
       }
     
-      set person(val) {
+      set author(val) {
         if (val === "") {
           console.log("Name cannot be empty");
           return;
         }
     
-        this._person = val;
+        this._author = val;
+      }
+    
+      set rate(val) {
+        if (val === "") {
+          console.log("Rate cannot be empty");
+          return;
+        }
+    
+        this._author = val;
       }
   }
 
@@ -57,28 +71,28 @@ window.addEventListener("load", () => {
   dataTestimonials = [
     {
       image: "asset/css/Gambar/projectGambar.jpg",
-      massage: "Menyala abangku",
-      person: "Jonny",
+      comment: "Menyala abangku",
+      author: "Jonny",
     },
     {
       image: "asset/css/Gambar/projectGambar.jpg",
-      massage: "Tipis-tipis capt",
-      person: "Andre",
+      comment: "Tipis-tipis capt",
+      author: "Andre",
     },
     {
       image: "asset/css/Gambar/projectGambar.jpg",
-      massage: "kelas capt",
-      person: "Mega",
+      comment: "kelas capt",
+      author: "Mega",
     },
     {
       image: "asset/css/Gambar/projectGambar.jpg",
-      massage: "Kelas yang punya setengah Indonesia",
-      person: "Lutfi"
+      comment: "Kelas yang punya setengah Indonesia",
+      author: "Lutfi"
     }
   ];
 
   dataTestimonials.forEach((data) => {
-    let testimonial = new Testimoni(data.image, data.massage, data.person);
+    let testimonial = new Testimoni(data.image, data.comment, data.author);
 
     testimonials.innerHTML += `
     <div class="testimoni" id="getTestimoni">
@@ -87,10 +101,10 @@ window.addEventListener("load", () => {
             <img src="${testimonial.image}" alt="">
         </div>
         <div>
-            <q>${testimonial.massage}</q>
+            <q>${testimonial.comment}</q>
         </div>
         <div>
-            <blockquote>-${testimonial.person}</blockquote>
+            <blockquote>-${testimonial.author}</blockquote>
         </div>
     </div>
     </div>

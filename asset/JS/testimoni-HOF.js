@@ -30,21 +30,50 @@ const data = [
       rating: 4
     },
   ]
+
+  const getData = () => {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      const url = "https://api.npoint.io/1465052a4f4453fb4ba3";
+  
+      xhr.open("GET", url);
+      xhr.send();
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          resolve(JSON.parse(xhr.response));
+        } else {
+          reject("Request gagal. Status code: ", xhr.status);
+        }
+      };
+    });
+  };
   
   // show all testimonial datas
-  function Testimonials() {
+    const Testimonials = async () =>  {
     let dataHTML = ''
+    const data = await getData();
+    const dataTestimonials = data.data;
   
-    data.forEach(function (data) {
+    console.log(dataTestimonials);
+
+    dataTestimonials.forEach((data) => {
+      let testimonial = new Testimoni(
+        data.image,
+        data.comment,
+        data.author,
+        data.rate
+      ); 
+
       dataHTML += `
       <div class="testimoni" id="getTestimoni">
         <div class="rootCard">
           <div class="testimonial">
             <img
               class="image-card"
-              src="${data.image}"/>
-            <p class="quote">${data.comment}</p>
-            <p class="author">- ${data.name}</p>
+              src="${testimonial.image}"/>
+            <p class="quote">${testimonial.comment}</p>
+            <p class="author">- ${testimonial.author}</p>
+            <p class="author">- ${testimonial.rate}</p>
           </div>
         </div>
       </div>
@@ -57,30 +86,46 @@ const data = [
   
   
   
-  const FilterTestimonial = (rating) => {
-    let dataHTML = ''
+  const FilterTestimonial = async (rating) => {
+    let testimonials = document.getElementById("getTestimoni");
+    const data = await getData();
+    const dataTestimonials = data.data;
   
-    const dataFiltered = data.filter((data) => {
-      return data.rating === rating
-    })
+    let filteredData = dataTestimonials.filter((data) => data.rate === rating);
+
+    testimonials.innerHTML = "";
+
+    filteredData.forEach((data) => {
+    let testimonial = new Testimoni(
+      data.image,
+      data.comment,
+      data.author,
+      data.rate
+    );
   
-    if(!dataFiltered.length) {
-      dataHTML += `<h1 class="title">Data not found!!</h1>`
-    } else {
-      dataFiltered.forEach((data) => {
-        console.log(data)
-        dataHTML += `
-        <div class="testimoni" id="getTestimoni">
-          <div class="rootCard">
-            <div class="testimonial">
-              <img class="image-card" src="${data.image}"/>
-              <p class="quote">${data.comment}</p>
-              <p class="author">- ${data.name}</p>
-            </div>
+    dataHTML += `
+      <div class="testimoni" id="getTestimoni">
+        <div class="rootCard">
+          <div class="testimonial">
+            <img
+              class="image-card"
+              src="${testimonial.image}"/>
+            <p class="quote">${testimonial.comment}</p>
+            <p class="author">- ${testimonial.author}</p>
+            <p class="author">- ${testimonial.rate}</p>
           </div>
         </div>
-        `
-      })
-    }
+      </div>
+      `
+    })
+
     document.getElementById("getTestimoni").innerHTML = dataHTML
   }
+
+  window.addEventListener("load", async () => {
+    if (new Testimoni() === undefined) {
+      return;
+    }
+  
+    await Testimonials();
+  });
