@@ -1,0 +1,18 @@
+.btn-dumbways {
+    background-color: orangered;
+}
+
+.nav-item :hover{
+    color: orangered;
+}
+
+@media (max-width: 500px) {
+    .navbar-collapse{
+        position: fixed;
+        top: 0;
+    }
+
+    .navbar-brand{
+        display: none;
+    }
+}
