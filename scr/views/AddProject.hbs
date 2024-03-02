@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add My Project</title>
+  <link rel="stylesheet" href="asset/css/css/style_web.css">
+  <link rel="stylesheet" href="asset/fontAwesome/fontawesome-free-6.5.1-web/css/all.min.css">
+</head>
+
+<body>
+  <nav>
+    <div class="left">
+      <ul>
+        <img src="asset/css/Gambar/download (1).png" alt="logo-image" />
+
+        <li>
+          <a href="/home" class="nav-items">Home</a>
+        </li>
+        <li>
+          <a href="./Task_day1.html" class="nav-items">My Project</a>
+        </li>
+        <li class="active">
+          <a href="./AddProject.html" class="nav-items">Add Project</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="right nav-items">
+      <a href="">Contact Me</a>
+    </div>
+    <div class="bars-item">
+      <button 
+        style="background-color: transparent; border: none; cursor: pointer"
+        onclick = "openHamburger()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="humburger-item" id="humburger-list-item">
+    <a href="./home.html" >Home</a>
+    <a href="./Task_day1.html" class="active">My Project</a>
+    <a href="">Contact Me</a>
+  </div>
+
+  <div>
+    <h1>ADD MY PROJECT</h1>
+  </div>
+  <div>
+    <form class="formDiv" onsubmit="addProject(event)">
+      <div class="addProject">
+        <div class="inputProject">
+          <label for="input-project-name">Project Name</label>
+          <input type="text" name="" id="input-project-name">
+        </div>
+        <div class="date">
+          <div>
+            <label for="start-date">Start Date</label>
+            <input type="date" id="start-date">
+          </div>
+          <div>
+            <label for="end-date">End Date</label>
+            <input type="date" id="end-date">
+          </div>
+        </div>
+        <div class="inputDescription">
+          <label for="description">Description</label>
+          <textarea name="" id="description" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+          <label for="technologies">Technologies</label>
+        </div>
+        <div class="technologies-item">
+          <div class="technologies1">
+            <input type="checkbox" id="inputNodeJS" name="technologies" value="Node JS">NodeJS
+            <input type="checkbox" id="inputNextJS" name="technologies" value="Next JS">NextJS
+          </div>
+          <div class="technologies2">
+            <input type="checkbox" id="inputReactJS" name="technologies" value="React JS">ReactJS
+            <input type="checkbox" id="inputGolang" name="technologies" value="Golang">Golang
+          </div>
+          <div class="uploadImage">
+            <label for="upload-image">Upload Image</label>
+            <input type="file" id="upload-image">
+          </div>
+          <div class="buttom-item">
+            <button type="submit" class="button">Submit</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="bawah">
+    <h1>My Project</h1>
+  </div>
+  <div class="container">
+    <div class="projectList" id="addProject">
+      <div class="project-list-item">
+        <img src="asset/css/Gambar/projectGambar.jpg" alt="" class="projectImage">
+        <div>
+          <h1>Dumbways App 2021</h1>
+        </div>
+        <div>
+          Durasi :
+        </div>
+        <div>
+          <p class="paragraf">
+            App that used for dumbways student, it was deployed and can download on playstore. happy download
+          </p>
+        </div>
+        <div>
+          <i class="fa-brands fa-node-js"></i>
+          <i class="fa-brands fa-js"></i>
+          <i class="fa-brands fa-react"></i>
+          <i class="fa-brands fa-golang"></i>
+        </div>
+        <div class="buttonProject">
+          <button class="buttom-group">Edit</button>
+          <button class="buttom-group">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+</body>
+
+<script src="asset/JS/add_project.js"></script>
+<script src="asset/JS/bars_items.js"></script>
+<script src="asset/fontAwesome/fontawesome-free-6.5.1-web/js/all.min.js"></script>
+
+</html>
