@@ -132,7 +132,7 @@ div .addProject div {
 
 .addProject input {
     width: 100%;
-    color: #dfd4cf;
+    color: #0f0602;
     background-color: rgb(241, 236, 236);
     border-radius: 20%;
 }
@@ -263,6 +263,10 @@ div .buttonProject {
 
 .humburger-item .active {
   background-color: white;
+}
+
+.durasi {
+  text-align: center;
 }
 
 

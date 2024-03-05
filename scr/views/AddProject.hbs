@@ -19,16 +19,19 @@
           <a href="/home" class="nav-items">Home</a>
         </li>
         <li>
-          <a href="./Task_day1.html" class="nav-items">My Project</a>
+          <a href="/myProject" class="nav-items">My Project</a>
         </li>
         <li class="active">
-          <a href="./AddProject.html" class="nav-items">Add Project</a>
+          <a href="/AddProject" class="nav-items">Add Project</a>
+        </li>
+        <li>
+          <a href="/testimoni" class="nav-items">Testomoni</a>
         </li>
       </ul>
     </div>
 
     <div class="right nav-items">
-      <a href="">Contact Me</a>
+      <a href="/contact-me">contact</a>
     </div>
     <div class="bars-item">
       <button 
@@ -40,34 +43,34 @@
   </nav>
 
   <div class="humburger-item" id="humburger-list-item">
-    <a href="./home.html" >Home</a>
-    <a href="./Task_day1.html" class="active">My Project</a>
-    <a href="">Contact Me</a>
+    <a href="/home" >Home</a>
+    <a href="/myProject" class="active">My Project</a>
+    <a href="/contactMe">Contact Me</a>
   </div>
 
   <div>
     <h1>ADD MY PROJECT</h1>
   </div>
   <div>
-    <form class="formDiv" onsubmit="addProject(event)">
+    <form class="formDiv" method="post" action="/AddProject">
       <div class="addProject">
         <div class="inputProject">
           <label for="input-project-name">Project Name</label>
-          <input type="text" name="" id="input-project-name">
+          <input type="text" id="input-project-name" name="project">
         </div>
         <div class="date">
           <div>
             <label for="start-date">Start Date</label>
-            <input type="date" id="start-date">
+            <input type="date" id="start-date" name="durasi">
           </div>
           <div>
             <label for="end-date">End Date</label>
-            <input type="date" id="end-date">
+            <input type="date" id="end-date" name="durasi">
           </div>
         </div>
         <div class="inputDescription">
           <label for="description">Description</label>
-          <textarea name="" id="description" cols="30" rows="10"></textarea>
+          <textarea id="description" cols="30" rows="10" name="description"></textarea>
         </div>
         <div>
           <label for="technologies">Technologies</label>

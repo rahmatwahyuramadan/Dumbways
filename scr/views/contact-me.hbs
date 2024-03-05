@@ -4,28 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
-    <link rel="stylesheet" href="asset/css/css/style.css">
+    <link rel="stylesheet" href="../asset/css/css/style_web.css">
 </head>
 <body>
 
-    <nav>
-        <div class="left">
-          <ul>
-            <img src="./asset/css/Gambar/download (1).png" alt="logo-image"/> 
-            
-            <li class="active">
-              <a href="./home.html">Home</a>
-            </li>
-            <li>
-              <a href="./Task_day1.html">Blog</a>
-            </li>
-          </ul>
-        </div>
-  
-        <div class="right">
-          <a href="">Contact Me</a>
-        </div>
-      </nav>
+   <nav>
+    <div class="left">
+      <ul>
+        <img src="asset/css/Gambar/download (1).png" alt="logo-image" />
+
+        <li>
+          <a href="/home" class="nav-items">Home</a>
+        </li>
+        <li>
+          <a href="/myProject" class="nav-items">My Project</a>
+        </li>
+        <li class="active">
+          <a href="/AddProject" class="nav-items">Add Project</a>
+        </li>
+        <li>
+          <a href="/testimoni" class="nav-items">Testomoni</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="right nav-items">
+      <a href="/contact-me">Contact Me</a>
+    </div>
+    <div class="bars-item">
+      <button 
+        style="background-color: transparent; border: none; cursor: pointer"
+        onclick = "openHamburger()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
       
         <h2 style="text-align: center;">Get In Touch</h2>
 

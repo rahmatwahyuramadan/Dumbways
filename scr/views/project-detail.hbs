@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Day 1</title>
+    <link rel="stylesheet" href="../asset/css/css/style_web.css">
+    <link rel="stylesheet" href="asset/fontAwesome/fontawesome-free-6.5.1-web/css/all.min.css">
+    <link rel="stylesheet" href="asset/css/css/styleBootstrap.css">
+    <style>
+      @import
+      url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); * {
+      font-family: 'Poppins', sans-serif; } .btn-primary { background-color:
+      orangered !important; } .btn-primary:hover { background-color: orangered
+      !important; } .active { color: orangered !important; font-weight: bold; }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+          <ul>
+            <img src="../asset/css/Gambar/download (1).png (1).png" alt="logo-image" />
+    
+            <li>
+              <a href="/home" class="nav-items">Home</a>
+            </li>
+            <li class="active">
+              <a href="/myProject" class="nav-items">My Project</a>
+            </li>
+            <li>
+              <a href="/AddProject" class="nav-items">Add Project</a>
+            </li>
+            <li>
+              <a href="/testimonial" class="nav-items">Testomonial</a>
+            </li>
+          </ul>
+        </div>
+    
+        <div class="right nav-items">
+          <a href="">Contact Me</a>
+        </div>
+        <div class="bars-item">
+          <button 
+            style="background-color: transparent; border: none; cursor: pointer"
+            onclick = "openHamburger()"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+
+<div class="tai">
+  <div class="w-100 d-flex justify-content-end mb-3">
+        <a href="/AddProject" class="btn btn-primary">Add New Blog</a>
+      </div>
+    <div class="container">
+      
+    <div class="projectList" id="addProject">
+      <div class="project-list-item">
+        <img src="asset/css/Gambar/projectGambar.jpg" alt="" class="projectImage">
+        <div>
+          <h1 id="input-project-name">
+            <a href="project-detail/{{@index}}">{{this.project}}</a>
+          </h1>
+          {{!-- <h1>{{id}}</h1> --}}
+        </div>
+        <div class="durasi">
+          Durasi :
+        </div>
+        <div>
+          <p class="paragraf">
+            description
+          </p>
+        </div>
+        <div>
+          <i class="fa-brands fa-node-js"></i>
+          <i class="fa-brands fa-js"></i>
+          <i class="fa-brands fa-react"></i>
+          <i class="fa-brands fa-golang"></i>
+        </div>
+        <div class="buttonProject">
+          <button class="buttom-group">Edit</button>
+          <button class="buttom-group">Delete</button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html>
