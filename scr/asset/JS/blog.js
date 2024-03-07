@@ -19,4 +19,3 @@ function addBlog(event) {
     renderBlog()
 }
 
-function renderBlog

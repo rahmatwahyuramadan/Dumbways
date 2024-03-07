@@ -55,7 +55,7 @@
         <a href="/AddProject" class="btn btn-primary">Add New Blog</a>
       </div>
     <div class="container">
-      
+      {{#each datas}}
     <div class="projectList" id="addProject">
       <div class="project-list-item">
         <img src="asset/css/Gambar/projectGambar.jpg" alt="" class="projectImage">
@@ -63,21 +63,29 @@
           <h1 id="input-project-name">
             <a href="project-detail/{{@index}}">{{this.project}}</a>
           </h1>
-          {{!-- <h1>{{id}}</h1> --}}
+          <h1>{{id}}</h1>
         </div>
         <div class="durasi">
-          Durasi :
+          Durasi : {{this.diff}}
         </div>
         <div>
           <p class="paragraf">
-            description
+            {{this.description}}
           </p>
         </div>
         <div>
+          {{#if this.react}}
           <i class="fa-brands fa-node-js"></i>
+          {{/if}}
+          {{#if this.next}}
           <i class="fa-brands fa-js"></i>
+          {{/if}}
+          {{#if this.react}}
           <i class="fa-brands fa-react"></i>
+          {{/if}}
+          {{#if this.golang}}
           <i class="fa-brands fa-golang"></i>
+          {{/if}}
         </div>
         <div class="buttonProject">
           <button class="buttom-group">Edit</button>
@@ -85,7 +93,7 @@
         </div>
       </div>
     </div>
-    
+    {{/each}}
   </div>
 </body>
 </html>

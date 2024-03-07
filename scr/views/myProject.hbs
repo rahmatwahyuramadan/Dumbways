@@ -65,7 +65,7 @@
           </h1>
         </div>
         <div>
-          Durasi : 
+          Durasi : {{this.diff}}
         </div>
         <div>
           <p class="paragraf">
@@ -73,13 +73,21 @@
           </p>
         </div>
         <div>
+          {{#if this.react}}
           <i class="fa-brands fa-node-js"></i>
+          {{/if}}
+          {{#if this.next}}
           <i class="fa-brands fa-js"></i>
+          {{/if}}
+          {{#if this.react}}
           <i class="fa-brands fa-react"></i>
+          {{/if}}
+          {{#if this.golang}}
           <i class="fa-brands fa-golang"></i>
+          {{/if}}
         </div>
         <div class="buttonProject">
-          <button class="buttom-group">Edit</button>
+          <a class="buttom-group" href="/project_edit/{{@index}}">Edit</a>
           <a class="buttom-group" href="/deleteProject/{{@index}}">Delete</a>
         </div>
       </div>
