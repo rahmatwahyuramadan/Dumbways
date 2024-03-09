@@ -196,16 +196,21 @@ div .technologies2 {
 
 .container{
   display: flex;
+  flex-wrap: wrap;
   padding-bottom: 50px;
   width: auto;
   height: max-content;
-  background-color: #dfd4cf;
+  background-color: #e45513;
   /* justify-content: flex-start; */
-  /* flex-direction: row; */
+  flex-direction: row;
+}
+.tai {
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .projectList {
-  width: 100%;
+  width: auto;
   display: flex;
   margin: 10px;
   height: auto;

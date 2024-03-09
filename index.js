@@ -1,7 +1,13 @@
 import express from 'express';
 import handlebars from 'handlebars';
+import { Sequelize , QueryTypes } from 'sequelize';
+import  connection  from "./scr/config/connection.js";
+import { SELECT } from 'sequelize/types/query-types.js';
+
 const app = express();
 const port = 3000;
+
+const sequelizeConfig = new Sequelize(connection.development)
 
 app.set("view engine", "hbs");
 app.set("views", "scr/views");
@@ -20,7 +26,7 @@ app.get("/contact-me", contactMe);
 app.get("/project_edit/:id", projectEdit);
 app.post("/AddProject:id/update", projectUpdate);
 
-let datas = [
+let data = [
     {
         project: "test",
         description: "test",
@@ -69,63 +75,84 @@ function getDistenceTime(startDate, endDate) {
     return years + " years";
     
   }
-function AddProject(req, res){
+ function AddProject(req, res){ 
     res.render("AddProject")
-}
+  } 
 function contactMe(req, res){
     res.render("contact-me")
 }
 function home(req, res){
     res.render("home")
 }
-function myProject(req, res){
-    res.render("myProject", {datas})
+async function myProject(req, res){
+  try {
+    const  queryName = "SELECT * FROM projects ORDER BY id DESC"
+    const projects = await sequelizeConfig.query(queryName, { type: QueryTypes.SELECT })
+    
+    const obj = projects.map((data) => {
+      return {
+        ...data,
+        author: "Putri Maharani Chan"
+      }
+    });
+    res.render("myProject", {data: obj});
+  } catch(error){
+    console.log(error);
+  }
 }
 function projectDetail(req, res){
-    const id = req.params.id
-    
-    res.render("project-detail", {id, datas})
-}
+    res.render("project-detail")
+  }
 function testimoni(req, res){
     res.render("testimoni")
 }
-function handleAddProject(req, res){
+async function handleAddProject(req, res){
     // const project = req.body.project
     // const description = req.body.description
     // console.log("berhasil submit data :", project)
     // console.log("berhasil submit data descripsi :", description)
-    
+    try {
     const {project, description, date1, date2, node, next, react, golang} = req.body
     // console.log(project, "," , description, ",", diff )
-    
-    datas.push({ 
-        project, 
-        description, 
-        date1, 
-        date2, 
-        node, 
-        next, 
-        react, 
-        golang, 
-        diff: getDistenceTime(new Date(date1), new Date(date2)), });
+    const queryName = `INSERT INTO projects(
+      project, date1, date2, description, node, next, react, golang, "createdAt", "updatedAt")
+      VALUES ('${project}', '${date1}', '${date2}', '${description}', '${node}', '${next}', '${react}', '${golang}', NOW(), NOW());`
 
-    console.log(datas)
+    await sequelizeConfig.query(queryName)
+      
+
+    
+    // datas.push({ 
+    //     project, 
+    //     description, 
+    //     date1, 
+    //     date2, 
+    //     node, 
+    //     next, 
+    //     react, 
+    //     golang, 
+    //     diff: getDistenceTime(new Date(date1), new Date(date2)), });
+
+    // console.log(datas)
 
     res.redirect("/myProject")
+} catch (error) {
+  console.log(error)}
 }
+
 function handleDeleteProject(req, res) {
     const { id } = req.params;
   
-    datas.splice(id, 1);
+    data.splice(id, 1);
   
     res.redirect("/myProject");
 }
 function projectEdit (req, res) {
   const { id } = req.params;
-  console.log(datas[id]);
+  console.log(data[id]);
 
   res.render("project_edit", {
-    data: datas[id],
+    data: data[id],
     id,
     currentUrl: req.path,
   });
@@ -135,7 +162,7 @@ function projectUpdate (req, res) {
   const { id } = req.params;
   const {project, description, date1, date2, node, next, react, golang} = req.body;
       
-  datas.splice(id, 1, {
+  data.splice(id, 1, {
         project, 
         description, 
         date1, 

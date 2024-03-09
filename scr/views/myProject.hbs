@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tugas Day 1</title>
-    <link rel="stylesheet" href="asset/css/css/style_web.css">
+    <link rel="stylesheet" href="../asset/css/css/style_web.css">
     <link rel="stylesheet" href="asset/fontAwesome/fontawesome-free-6.5.1-web/css/all.min.css">
     <link rel="stylesheet" href="asset/css/css/styleBootstrap.css">
     {{!-- <style>
@@ -55,7 +55,7 @@
         <a href="AddProject" class="btn btn-primary">Add New Blog</a>
       </div>
     <div class="container">
-      {{#each datas}}
+      {{#each data}}
     <div class="projectList" id="addProject">
       <div class="project-list-item">
         <img src="asset/css/Gambar/projectGambar.jpg" alt="" class="projectImage">
@@ -65,7 +65,7 @@
           </h1>
         </div>
         <div>
-          Durasi : {{this.diff}}
+          Durasi : {{this.diff}} | {{this.author}}
         </div>
         <div>
           <p class="paragraf">

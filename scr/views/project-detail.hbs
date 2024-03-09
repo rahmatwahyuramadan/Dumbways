@@ -55,7 +55,7 @@
         <a href="/AddProject" class="btn btn-primary">Add New Blog</a>
       </div>
     <div class="container">
-      {{#each datas}}
+      {{#each data}}
     <div class="projectList" id="addProject">
       <div class="project-list-item">
         <img src="asset/css/Gambar/projectGambar.jpg" alt="" class="projectImage">
@@ -63,7 +63,7 @@
           <h1 id="input-project-name">
             <a href="project-detail/{{@index}}">{{this.project}}</a>
           </h1>
-          <h1>{{id}}</h1>
+          <h1>{{data.project}}</h1>
         </div>
         <div class="durasi">
           Durasi : {{this.diff}}
