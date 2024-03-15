@@ -18,7 +18,12 @@ module.exports = (sequelize, DataTypes) => {
     date1: DataTypes.DATE,
     date2: DataTypes.DATE,
     description: DataTypes.TEXT,
-    technologies: DataTypes.STRING
+    node: DataTypes.STRING,
+    next: DataTypes.STRING,
+    react: DataTypes.STRING,
+    golang: DataTypes.STRING,
+    image: DataTypes.STRING,
+    author: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'projects',

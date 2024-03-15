@@ -21,9 +21,30 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
-      technologies: {
+      node: {
+        type: Sequelize.STRING,
+      },
+      next: {
+        type: Sequelize.STRING,
+      },
+      react: {
+        type: Sequelize.STRING,
+      },
+      golang: {
+        type: Sequelize.STRING,
+      },
+      image: {
         type: Sequelize.STRING
       },
+      author: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+        },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

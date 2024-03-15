@@ -20,7 +20,7 @@
     <nav>
         <div class="left">
           <ul>
-            <img src="../asset/css/Gambar/download (1).png (1).png" alt="logo-image" />
+            <img src="../asset/css/Gambar/download (1).png" alt="logo-image" />
     
             <li>
               <a href="/home" class="nav-items">Home</a>
@@ -55,22 +55,22 @@
         <a href="/AddProject" class="btn btn-primary">Add New Blog</a>
       </div>
     <div class="container">
-      {{#each data}}
+      {{!-- {{#each data}} --}}
     <div class="projectList" id="addProject">
-      <div class="project-list-item">
-        <img src="asset/css/Gambar/projectGambar.jpg" alt="" class="projectImage">
+      <div class="project-list-item" style="width: 1200px; margin:auto">
+        <img src="../asset/css/Gambar/projectGambar.jpg" alt="" class="projectImage">
         <div>
           <h1 id="input-project-name">
-            <a href="project-detail/{{@index}}">{{this.project}}</a>
+            <a >{{data.project}}</a>
           </h1>
           <h1>{{data.project}}</h1>
         </div>
         <div class="durasi">
-          Durasi : {{this.diff}}
+          Durasi : {{data.duration}}
         </div>
         <div>
           <p class="paragraf">
-            {{this.description}}
+            {{data.description}}
           </p>
         </div>
         <div>
@@ -93,7 +93,7 @@
         </div>
       </div>
     </div>
-    {{/each}}
+    {{!-- {{/each}} --}}
   </div>
 </body>
 </html>

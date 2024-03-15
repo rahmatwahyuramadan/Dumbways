@@ -58,14 +58,14 @@
       {{#each data}}
     <div class="projectList" id="addProject">
       <div class="project-list-item">
-        <img src="asset/css/Gambar/projectGambar.jpg" alt="" class="projectImage">
+        <img src="/uploads/{{this.image}}" alt="" class="projectImage">
         <div>
           <h1>
-            <a href="project-detail/{{@index}}">{{this.project}}</a>
+            <a href="/project-detail/{{this.id}}">{{this.project}}</a>
           </h1>
         </div>
         <div>
-          Durasi : {{this.diff}} | {{this.author}}
+          Durasi : {{this.duration}} | {{this.author}}
         </div>
         <div>
           <p class="paragraf">
@@ -86,10 +86,12 @@
           <i class="fa-brands fa-golang"></i>
           {{/if}}
         </div>
+        {{#if this.isLogin}}
         <div class="buttonProject">
           <a class="buttom-group" href="/project_edit/{{@index}}">Edit</a>
-          <a class="buttom-group" href="/deleteProject/{{@index}}">Delete</a>
+          <a class="buttom-group" href="/deleteProject/{{this.id}}">Delete</a>
         </div>
+        {{/if}}
       </div>
     </div>
     {{/each}}

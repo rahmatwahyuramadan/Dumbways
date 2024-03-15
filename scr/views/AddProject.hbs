@@ -31,7 +31,15 @@
     </div>
 
     <div class="right nav-items">
-      <a href="/contact-me">contact</a>
+        <li class="active">
+          <a href="/registrasi" class="nav-items">Registasi</a>
+        </li>
+        <li>
+          <a href="/login" class="nav-items">Login</a>
+        </li>
+        <li>
+        <a href="/contact-me">contact</a>
+        </li>
     </div>
     <div class="bars-item">
       <button 
@@ -52,7 +60,7 @@
     <h1>ADD MY PROJECT</h1>
   </div>
   <div>
-    <form class="formDiv" method="post" action="/AddProject">
+    <form class="formDiv" method="post" action="/AddProject" enctype="multipart/form-data">
       <div class="addProject">
         <div class="inputProject">
           <label for="input-project-name">Project Name</label>
@@ -61,11 +69,11 @@
         <div class="date">
           <div>
             <label for="start-date">Start Date</label>
-            <input type="date" id="start-date" name="date1">
+            <input type="date" id="date1" name="date1">
           </div>
           <div>
             <label for="end-date">End Date</label>
-            <input type="date" id="end-date" name="date2">
+            <input type="date" id="date2" name="date2">
           </div>
         </div>
         <div class="inputDescription">
@@ -86,7 +94,7 @@
           </div>
           <div class="uploadImage">
             <label for="upload-image">Upload Image</label>
-            <input type="file" id="upload-image">
+            <input type="file" id="upload-image" name="image">
           </div>
           <div class="buttom-item">
             <button type="submit" class="button">Submit</button>

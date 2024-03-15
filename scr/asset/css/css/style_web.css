@@ -40,6 +40,15 @@ nav {
     color: white;
     align-items: end;
   }
+
+  nav .right{
+    display: flex;
+    list-style-type: none;
+  }
+
+  nav .right li{
+    padding: 20px;
+  }
   
   nav .left ul li {
     list-style-type: none;
@@ -219,7 +228,7 @@ div .technologies2 {
 }
 
 .projectImage {
-  width: 250px;
+  width: 200px;
 }
 
 .project-list-item {

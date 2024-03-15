@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+<html>
+  <head>
+    <title>Personal Web</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -17,9 +14,9 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-</head>
-<body style="background-color: gray;">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container">
         <a class="navbar-brand" href="/">
           <img style="width: 30px;" src="../asset/css/Gambar/download (1).png" id="image" />
@@ -37,14 +34,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0">
-            <li class="nav-item" class="active">
+            <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/home">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/myProject">My Project</a>
-            </li>
             <li class="nav-item ms-3">
-              <a class="nav-link" href="/AddProject">Add Project</a>
+              <a class="nav-link" href="/AddProject">Add Projct</a>
             </li>
             <li class="nav-item ms-3">
               <a class="nav-link" href="/testimoni">Testimonials</a>
@@ -53,19 +47,16 @@
 
           <div class="d-flex justify-content-end">
             <ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0">
-                {{#if isLogin}}
               <li class="nav-item">
-                <a class="nav-link" href="#">Hallo {{user}}</a>
+                <a class="nav-link" href="/registrasi">Register</a>
               </li>
               <li class="nav-item ms-3">
                 <a
                   class="nav-link text-danger active fw-semibold"
-                  href="/login"
+                  href="#"
                 >Login</a>
               </li>
-              {{else}}
             </ul>
-             {{/if}}
 
             <a class="btn btn-danger btn-submit ms-5" href="/contact-me">Contact
               Me</a>
@@ -74,23 +65,48 @@
       </div>
     </nav>
 
-      <div style="display: flex; width: 600px; margin: 100px 400px; background-color: white; border-radius: 5%;">
-        <div style="padding: 20px;">
-        <h3>Hi Welcome to my hut</h3>
-        <p style="text-justify: distribute-all-lines;"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, recusandae suscipit! Numquam dolore modi ipsa eveniet impedit eligendi asperiores perspiciatis atque laudantium totam libero, earum animi autem. Quis, voluptates magnam?</p>
-    
-       <P> <a href="https://web.whatsapp.com/%F0%9F%8C%90/id"  > contact </a></P>
-   
-        <P><a href="https://drive.google.com/file/d/1LeWKUl-eI7smXE9TNHVzGTlqibZE8E-e/view?usp=drive_link" >Download CV </a></P>
+    {{#if messages.danger}}
+    <div class="alert alert-danger" role="alert">
+      <div class="container">
+        {{messages.danger}}
       </div>
+    </div>
+    {{/if}}
 
-        <div style="padding: 20px; justify-content: center; box-shadow: 10px;">
-            <img src="asset/css/Gambar/foto.jpg" alt=""  style="border-radius: 5%; width: 200px; justify-content: center;">
-
-            <h3 style="text-align: center;">Rahmat Wahyu</h3>
-
-            <p style="text-align: center;">Fullstack Developer</p>
-        </div>
+    {{#if messages.succes}}
+    <div class="alert alert-succes" role="alert">
+      <div class="container">
+        {{messages.succes}}
       </div>
-</body>
+    </div>
+    {{/if}}
+
+    <div class="container d-flex justify-content-center">
+      <div class="w-50">
+        <h3 class="text-center mt-5">LOGIN</h3>
+        <form action="/login" method="post">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="password"
+            />
+          </div>
+          <button type="submit" class="btn btn-danger mt-3 px-5">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
