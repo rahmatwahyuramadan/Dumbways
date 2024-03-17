@@ -58,12 +58,11 @@
       {{!-- {{#each data}} --}}
     <div class="projectList" id="addProject">
       <div class="project-list-item" style="width: 1200px; margin:auto">
-        <img src="../asset/css/Gambar/projectGambar.jpg" alt="" class="projectImage">
+        <img src="/uploads/{{data.image}}" alt="" class="projectImage">
         <div>
           <h1 id="input-project-name">
             <a >{{data.project}}</a>
           </h1>
-          <h1>{{data.project}}</h1>
         </div>
         <div class="durasi">
           Durasi : {{data.duration}}
@@ -73,20 +72,13 @@
             {{data.description}}
           </p>
         </div>
+        
         <div>
-          {{#if this.react}}
-          <i class="fa-brands fa-node-js"></i>
-          {{/if}}
-          {{#if this.next}}
-          <i class="fa-brands fa-js"></i>
-          {{/if}}
-          {{#if this.react}}
-          <i class="fa-brands fa-react"></i>
-          {{/if}}
-          {{#if this.golang}}
-          <i class="fa-brands fa-golang"></i>
-          {{/if}}
+          {{#each data.tech}}
+          <i class="fa-brands {{ this }}"></i>
+          {{/each}}
         </div>
+
         <div class="buttonProject">
           <button class="buttom-group">Edit</button>
           <button class="buttom-group">Delete</button>

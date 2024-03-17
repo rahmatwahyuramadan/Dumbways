@@ -5,7 +5,8 @@ const  connection = require ("./scr/config/connection.json");
 const bcrypt = require ('bcrypt');
 const session  = require ('express-session');
 const flash = require ('express-flash');
-const multer = require("multer")
+const multer = require("multer");
+const dayjs = require('dayjs');
 // import { INSERT } from 'sequelize/types/query-types.js';
 // import { SELECT } from 'sequelize/types/query-types.js';
 
@@ -68,6 +69,7 @@ app.post("/registrasi", registrasi);
 app.get("/login", formLogin);
 app.post("/login", login);
 app.post("/project", projectPost);
+app.get("/logout", logout);
 
 let data = [
     {
@@ -183,6 +185,16 @@ async function login(req, res){
   }
 }
 
+function logout(req, res) {
+  req.session.destroy((err) => {
+      if (err) {
+          console.log(err);
+      } else {
+          res.redirect("/login");
+      }
+  });
+}
+
 function home(req, res){
   res.render("home", {
     isLogin: req.session.isLogin,
@@ -192,7 +204,7 @@ function home(req, res){
 async function myProject(req, res){
   try {
     
-    const  queryName = `SELECT p.id, p.project, p.date1, p.date2, p.node, p.next, p.react, p.golang, p.description,p.author, p.image, p."updatedAt", u.name AS author 
+    const  queryName = `SELECT p.id, p.project, p.date1, p.date2, p.node, p.next, p.react, p.golang, p.description,p.author, p.image, p."updatedAt",p.tech, u.name AS author 
     FROM projects p 
     LEFT JOIN "users" u ON p.author = u.id 
     ORDER BY id DESC`
@@ -201,7 +213,8 @@ async function myProject(req, res){
     const obj = projects.map((data) => {
       return {
         ...data,
-        isLogin: req.session.isLogin
+        isLogin: req.session.isLogin,
+        
       }
     })
 
@@ -213,31 +226,24 @@ async function myProject(req, res){
 async function projectDetail(req, res){
   try {
     const id = req.params.id;
-    const  queryName = `SELECT * FROM projects WHERE id=${id}`
-    const projects = await sequelizeConfig.query(queryName, { type: QueryTypes.SELECT })
     
-    const obj = projects.map((data) => {
-      return {
-        ...data,
-        author: "Putri Maharani Chan"
+    const data = (await sequelizeConfig.query(
+      `SELECT * FROM projects WHERE id = ${id}`,
+      {
+        type: QueryTypes.SELECT,
       }
-    });
+    ))[0];
 
-    // const formatDuration = new Intl.DateTimeFormat("id", {
-    //   year: "numeric",
-    //   month: "long",
-    //   day: "numeric",
-    // });
-
-    // const newData = data.map((item) => {
-    //   return {
-    //     ...item,
-    //     duration: formatDuration.formatRange(item.date1, item.date2)
-    //   };
-    // });
-
-    res.render("project-detail", {
-      data: projects,
+    console.log(data);
+    
+    data.start_date = dayjs(data.date1).format("DD - MM - YYYY")
+    data.end_date = dayjs(data.date2).format("DD - MM - YYYY")
+      data.duration = dayjs(data.date2).diff(data.date1,"days")
+      
+      console.log("229",data);
+      res.render("project-detail", {
+      currentUrl: req.path,
+      data,
     });
   }catch(error){
     console.log(error);
@@ -248,12 +254,13 @@ function testimoni(req, res){
 }
 async function handleAddProject(req, res){
     try {
-    const {project, description, date1, date2, node, next, react, golang} = req.body
+    const {project, description, date1, date2, node, next, react, golang,tech} = req.body
+    console.log(req.body);
     const author = req.session.idUser;
     const image = req.file.filename;
     const queryName = `INSERT INTO projects(
-      project, date1, date2, description, node, next, react, golang, author, image, "createdAt", "updatedAt")
-      VALUES ('${project}', '${date1}', '${date2}', '${description}', '${node}', '${next}', '${react}', '${golang}', '${author}', '${image}', NOW(), NOW());`
+      project, date1, date2, description, author, image,tech, "createdAt", "updatedAt")
+      VALUES ('${project}', '${date1}', '${date2}', '${description}','${author}',  '${image}', '{${tech}}' ,NOW(), NOW());`
 
     await sequelizeConfig.query(queryName)
     res.redirect("/myProject")
@@ -274,26 +281,28 @@ async function handleDeleteProject(req, res) {
 async function projectEdit  (req, res)  {
   try {
     const { id } = req.params;
+    const author = req.session.idUser;
+    const image = req.file.filename;
     const data = await sequelizeConfig.query(
       `SELECT * FROM projects WHERE id = ${id}`,
       {
         type: QueryTypes.INSERT,
       }
     );
-
-    const newData = data[0].map((item) => {
+    const obj = project.map((data) => {
       return {
-        ...item,
-        start_date: new Date(item.date1).toLocaleDateString("en-CA"),
-        end_date: new Date(item.date2).toLocaleDateString("en-CA"),
-      };
-    });
+          ...data
+      }
+  })
+  console.log(obj);
 
-    res.render("project_edit", {
-      data: newData[0],
-      id,
-      currentUrl: req.path,
-    });
+
+  res.render("project_edit", {
+      data: obj[0],
+      isLogin: req.session.isLogin,
+      user: req.session.user
+  });
+    
   } catch (error) {
     console.log(error);
   }
@@ -303,16 +312,16 @@ async function projectPost (req, res){
   try {
     const { project, description, date1, date2, node, next, react, golang } = req.body;
 
-    const diff_date = getDiffDate(new Date(date1), new Date(date2));
+    const duration = getDiffDate(new Date(date1), new Date(date2));
     const start_date = new Date(date1).toISOString();
     const end_date = new Date(date2).toISOString();
     const is_node = node ? true : false;
-    const is_react = react ? true : false;
     const is_next = next ? true : false;
+    const is_react = react ? true : false;
     const is_golang = golang ? true : false;
 
-    await sequelize.query(
-      `INSERT INTO projects(project, start_date, end_date, node, react, next, type, description, diff_date, create_at, update_at) VALUES ('${project}', '${start_date}', '${end_date}', ${is_node}, ${is_react}, ${is_next}, ${is_golang}, '${description}', '${diff_date}', NOW(), NOW())`,
+    await sequelizeConfig.query(
+      `INSERT INTO projects(project, date1, date2, node, next, react, golang, description, duration, create_at, update_at) VALUES ('${project}', '${start_date}', '${end_date}', ${is_node}, ${is_next}, ${is_react}, ${is_golang}, '${description}', '${duration}', NOW(), NOW())`,
       {
         type: QueryTypes.INSERT,
       }
